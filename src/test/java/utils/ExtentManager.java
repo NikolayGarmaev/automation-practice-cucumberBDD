@@ -6,8 +6,6 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import org.openqa.selenium.WebDriver;
-import org.testng.ITestResult;
-import org.testng.annotations.Test;
 
 import java.lang.reflect.Method;
 
@@ -32,12 +30,12 @@ public class ExtentManager {
     }
 
     //to create a Test Report for each Test Case
-    public void createTestReport(WebDriver driver, Method method){
-        this.driver = driver;
-        extentTest = extentReports.createTest(getCustomTestName(method));
-        extentTest.assignAuthor("Kuba");
-        extentTest.assignDevice("Mac OS");
-    }
+//    public void createTestReport(WebDriver driver, Method method){
+//        this.driver = driver;
+//        extentTest = extentReports.createTest(getCustomTestName(method));
+//        extentTest.assignAuthor("Kuba");
+//        extentTest.assignDevice("Mac OS");
+//    }
 
     //To log a report message
     public void logMsg(String msg, String resultType){
@@ -55,36 +53,36 @@ public class ExtentManager {
         extentTest.info(msg);
     }
 
-    public String getCustomTestName(Method method){
-        Test testClass = method.getAnnotation(Test.class);
-
-        if(testClass.testName().length() > 0)
-            return testClass.testName();
-        return method.getName();
-    }
-
-    public String getCustomTestDescription(Method method){
-        Test testClass = method.getAnnotation(Test.class);
-
-        if(testClass.description().length() > 0)
-            return testClass.description();
-        return method.getName();
-    }
-
-    //should be called in @AfterMethod
-    public void closeTestReport(ITestResult result){
-        //This will capture the result of the Test and log to extentTest report
-        if(result.getStatus() == ITestResult.SUCCESS){
-            extentTest.pass("Test PASSED");
-        }else if(result.getStatus() == ITestResult.FAILURE){
-            extentTest.fail("Test FAILED");
-            logScreenshot();
-            extentTest.fail(result.getThrowable());
-        }else if(result.getStatus() == ITestResult.SKIP){
-            extentTest.skip("Test SKIPPED");
-            extentTest.fail(result.getThrowable());
-        }
-    }
+//    public String getCustomTestName(Method method){
+//        Test testClass = method.getAnnotation(Test.class);
+//
+//        if(testClass.testName().length() > 0)
+//            return testClass.testName();
+//        return method.getName();
+//    }
+//
+//    public String getCustomTestDescription(Method method){
+//        Test testClass = method.getAnnotation(Test.class);
+//
+//        if(testClass.description().length() > 0)
+//            return testClass.description();
+//        return method.getName();
+//    }
+//
+//    //should be called in @AfterMethod
+//    public void closeTestReport(ITestResult result){
+//        //This will capture the result of the Test and log to extentTest report
+//        if(result.getStatus() == ITestResult.SUCCESS){
+//            extentTest.pass("Test PASSED");
+//        }else if(result.getStatus() == ITestResult.FAILURE){
+//            extentTest.fail("Test FAILED");
+//            logScreenshot();
+//            extentTest.fail(result.getThrowable());
+//        }else if(result.getStatus() == ITestResult.SKIP){
+//            extentTest.skip("Test SKIPPED");
+//            extentTest.fail(result.getThrowable());
+//        }
+//    }
 
     public void logScreenshot(String title){
         extentTest.info(title,
