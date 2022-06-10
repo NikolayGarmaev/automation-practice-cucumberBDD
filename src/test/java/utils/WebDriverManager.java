@@ -8,14 +8,13 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import java.util.concurrent.TimeUnit;
 
 public class WebDriverManager {
+    //private constructor to implement Singleton Design Class
+    private WebDriverManager(){
+
+    }
     private static WebDriver driver;
 
-    public void setUp(){
-        initializeDriver(ConfigReader.readProperty("browser"));
-        driver.get(ConfigReader.readProperty("url"));
-    }
-
-    public void initializeDriver(String browser){
+    private static void initializeDriver(String browser){
         driver = null;
         switch (browser.toLowerCase()){
             case "chrome":
@@ -38,11 +37,17 @@ public class WebDriverManager {
     }
 
     public static WebDriver getDriver(){
+        if (driver == null){
+            initializeDriver(ConfigReader.readProperty("browser"));
+        }
         return driver;
     }
 
     public static void closeDriver(){
-        driver.close();
+        if(driver != null){
+            driver.close();
+            driver = null;
+        }
     }
 
 }
