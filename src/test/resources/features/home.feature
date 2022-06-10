@@ -5,3 +5,4 @@ Feature: Home page related scenarios
   Scenario: Verify all links are displayed
     Given User navigates to www.automation.techleadacademy.io
     Then Verify all links are displayed
+
