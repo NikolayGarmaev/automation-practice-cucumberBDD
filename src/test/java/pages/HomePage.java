@@ -14,6 +14,9 @@ public class HomePage {
     @FindBy(id = "php-travels")
     public WebElement phpLink;
 
+    @FindBy(linkText = "Pop-Up")
+    public WebElement popUpBtn;
+
     public static HomePage getPage(){
         if (page == null)
             page = new HomePage();
