@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         glue = {"step_definitions"},
         stepNotifications = true,
         dryRun = false,
-        tags = "@AUT-6"
+        tags = "@AUT-5"
 )
 public class CukesRunner {
 }

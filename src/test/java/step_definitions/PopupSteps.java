@@ -15,10 +15,16 @@ public class PopupSteps {
         HomePage.getPage().popUpBtn.click();
     }
 
-
-    @And("User clicks on Message button")
-    public void userClicksOnMessageButton() {
-        PopupPage.getPage().messageBtn.click();
+    @And("User clicks on {string} button")
+    public void userClicksOnButton(String btn) {
+        switch (btn.toLowerCase()){
+            case "message": PopupPage.getPage().messageBtn.click();
+            break;
+            case "bmi calculator": PopupPage.getPage().bmiCalculatorBtn.click();
+            break;
+            default:
+                System.out.println("Invalid button name");
+        }
     }
 
     @Then("Verify New Message header is displayed")
@@ -27,13 +33,13 @@ public class PopupSteps {
         Assert.assertTrue(PopupPage.getPage().messageHeaderTxt.isDisplayed());
     }
 
-    @When("User click on BMI Calculator button")
-    public void user_click_on_bmi_calculator_button() {
-        PopupPage.getPage().bmiCalculatorBtn.click();
-    }
+
     @Then("Verify BMI Calculator header is displayed")
     public void verify_bmi_calculator_header_is_displayed() {
         SeleniumUtils.sleep(1000L);
-        Assert.assertTrue(PopupPage.getPage().getBmiCalculatorHeaderTxt.isDisplayed());
+        Assert.assertFalse(PopupPage.getPage().getBmiCalculatorHeaderTxt.isDisplayed());
+
     }
+
+
 }
