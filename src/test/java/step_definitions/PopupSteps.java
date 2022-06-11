@@ -6,22 +6,23 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.HomePage;
 import pages.PopupPage;
+import pages.UserMgtPage;
 import utils.SeleniumUtils;
 
 public class PopupSteps {
 
-    @When("User opens Pop-Up page")
-    public void userOpensPopUpPage() {
-        HomePage.getPage().popUpBtn.click();
-    }
-
     @And("User clicks on {string} button")
     public void userClicksOnButton(String btn) {
-        switch (btn.toLowerCase()){
-            case "message": PopupPage.getPage().messageBtn.click();
-            break;
-            case "bmi calculator": PopupPage.getPage().bmiCalculatorBtn.click();
-            break;
+        switch (btn.toLowerCase()) {
+            case "message":
+                PopupPage.getPage().messageBtn.click();
+                break;
+            case "bmi calculator":
+                PopupPage.getPage().bmiCalculatorBtn.click();
+                break;
+            case "access db":
+                UserMgtPage.getPage().accessDbBtn.click();
+                break;
             default:
                 System.out.println("Invalid button name");
         }
