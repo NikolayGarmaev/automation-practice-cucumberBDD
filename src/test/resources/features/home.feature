@@ -4,7 +4,5 @@ Feature: Home page related scenarios
 
   @AUT-6 @smoke @regression @miniRegression
   Scenario: Verify all links are displayed
-    Given User navigates to www.automation.techleadacademy.io
     Then Verify PHP Travels link is displayed
-    And Closes driver
 

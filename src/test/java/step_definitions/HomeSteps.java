@@ -11,18 +11,9 @@ import utils.WebDriverManager;
 public class HomeSteps {
 
 
-    @Given("User navigates to www.automation.techleadacademy.io")
-    public void user_navigates_to_http_automation_techleadacademy_io() {
-        WebDriverManager.getDriver().get(ConfigReader.readProperty("url"));
-    }
-
     @Then("Verify PHP Travels link is displayed")
     public void verifyPHPTravelsLinkIsDisplayed() {
         Assert.assertTrue(HomePage.getPage().phpLink.isDisplayed());
     }
 
-    @And("Closes driver")
-    public void closesDriver() {
-        WebDriverManager.getDriver().close();
-    }
 }

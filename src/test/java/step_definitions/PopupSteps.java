@@ -6,6 +6,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.HomePage;
 import pages.PopupPage;
+import utils.SeleniumUtils;
 
 public class PopupSteps {
 
@@ -22,6 +23,7 @@ public class PopupSteps {
 
     @Then("Verify New Message header is displayed")
     public void verifyNewMessageHeaderIsDisplayed() {
+        SeleniumUtils.waitForElementVisibility(PopupPage.getPage().messageHeaderTxt);
         Assert.assertTrue(PopupPage.getPage().messageHeaderTxt.isDisplayed());
     }
 
@@ -31,6 +33,7 @@ public class PopupSteps {
     }
     @Then("Verify BMI Calculator header is displayed")
     public void verify_bmi_calculator_header_is_displayed() {
+        SeleniumUtils.sleep(1000L);
         Assert.assertTrue(PopupPage.getPage().getBmiCalculatorHeaderTxt.isDisplayed());
     }
 }

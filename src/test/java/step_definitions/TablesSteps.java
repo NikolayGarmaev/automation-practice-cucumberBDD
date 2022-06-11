@@ -11,7 +11,7 @@ public class TablesSteps {
     @When("User opens Table page")
     public void user_opens_table_page() {
         System.out.println("opened tables page");
-        WebDriverManager.getDriver().findElement(By.id("")).click();
+        //WebDriverManager.getDriver().findElement(By.id("")).click();
     }
 
     @Then("Verify user can see header Customer details")
