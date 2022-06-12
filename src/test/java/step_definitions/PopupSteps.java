@@ -19,19 +19,12 @@ public class PopupSteps implements CommonPage {
         WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_BUTTON, btn))).click();
     }
 
-    @Then("Verify New Message header is displayed")
-    public void verifyNewMessageHeaderIsDisplayed() {
-        SeleniumUtils.waitForElementVisibility(PopupPage.getPage().messageHeaderTxt);
-        Assert.assertTrue(PopupPage.getPage().messageHeaderTxt.isDisplayed());
+    @Then("Verify {string} header is displayed")
+    public void verifyHeaderIsDisplayed(String txt) {
+        SeleniumUtils.waitForElementVisibility(WebDriverManager.getDriver().findElement(By.xpath(
+                String.format(XPATH_TEMPLATE_TEXT, txt))));
+
+        Assert.assertTrue(WebDriverManager.getDriver().findElement(By.xpath(
+                String.format(XPATH_TEMPLATE_TEXT, txt))).isDisplayed());
     }
-
-
-    @Then("Verify BMI Calculator header is displayed")
-    public void verify_bmi_calculator_header_is_displayed() {
-        SeleniumUtils.sleep(1000L);
-        Assert.assertFalse(PopupPage.getPage().getBmiCalculatorHeaderTxt.isDisplayed());
-
-    }
-
-
 }

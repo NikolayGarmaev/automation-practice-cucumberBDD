@@ -1,4 +1,44 @@
 package step_definitions;
 
-public class UserMgtSteps {
+import io.cucumber.java.en.Then;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import pages.CommonPage;
+import pages.UserMgtPage;
+import utils.WebDriverManager;
+
+import java.util.List;
+
+public class UserMgtSteps implements CommonPage {
+
+    @Then("Verify input field {string} is displayed")
+    public void verify_input_field_is_displayed(String fieldName) {
+        Assert.assertTrue(WebDriverManager.getDriver().findElement(By.xpath(String.format(
+                XPATH_TEMPLATE_INPUT_FIELD, fieldName))).isDisplayed());
+    }
+
+    @Then("Verify following input fields are displayed:")
+    public void verifyFollowingInputFieldsAreDisplayed(List<String> data) {
+        for(String each: data){
+            Assert.assertTrue(WebDriverManager.getDriver().findElement(By.xpath(String.format(
+                    XPATH_TEMPLATE_INPUT_FIELD, each))).isDisplayed());
+        }
+    }
+
+    @Then("Verify {string} selection is enabled")
+    public void verifySelectionIsEnabled(String selectName) {
+        WebElement element;
+
+        switch (selectName.toLowerCase()){
+            case "role": element = UserMgtPage.getPage().selectRole;
+            break;
+            default: element = null;
+        }
+
+        Assert.assertTrue(element.isEnabled());
+    }
+
+
+
 }

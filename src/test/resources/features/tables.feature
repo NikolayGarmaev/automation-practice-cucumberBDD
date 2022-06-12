@@ -1,9 +1,9 @@
 Feature: Tables page tests
+  Background: Navigate to the page
+    Given User opens "Tables" page
 
   Scenario: Verify header of the page is Customer Details
-    Given User opens "Table" page
     Then Verify user can see header Customer details
 
   Scenario: Verify table contains email column
-    Given User opens "Table" page
     Then Verify email column is displayed
