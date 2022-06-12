@@ -4,11 +4,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import pages.CommonPage;
 import pages.HomePage;
-import pages.TablesPage;
-import pages.UserMgtPage;
+import utils.WebDriverManager;
 
-public class HomeSteps {
+public class HomeSteps implements CommonPage {
 
 
     @Then("Verify PHP Travels link is displayed")
@@ -18,19 +19,7 @@ public class HomeSteps {
 
     @Given("User opens {string} page")
     public void userOpensPage(String pageName) {
-        switch (pageName.toLowerCase()) {
-            case "pop-up":
-                HomePage.getPage().popUpBtn.click();
-                break;
-            case "table":
-                TablesPage.getPage().tablesBtn.click();
-                break;
-            case "user-mgt":
-                UserMgtPage.getPage().userMgtBtn.click();
-                break;
-            default:
-                System.out.println("Invalid page name");
-        }
+        WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, pageName))).click();
     }
 
 }

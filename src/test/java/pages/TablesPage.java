@@ -11,8 +11,6 @@ public class TablesPage {
         PageFactory.initElements(WebDriverManager.getDriver(), this);
     }
 
-    @FindBy(linkText = "Tables")
-    public WebElement tablesBtn;
 
 
     public static TablesPage getPage(){

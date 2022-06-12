@@ -4,28 +4,19 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import pages.CommonPage;
 import pages.HomePage;
 import pages.PopupPage;
 import pages.UserMgtPage;
 import utils.SeleniumUtils;
+import utils.WebDriverManager;
 
-public class PopupSteps {
+public class PopupSteps implements CommonPage {
 
     @And("User clicks on {string} button")
     public void userClicksOnButton(String btn) {
-        switch (btn.toLowerCase()) {
-            case "message":
-                PopupPage.getPage().messageBtn.click();
-                break;
-            case "bmi calculator":
-                PopupPage.getPage().bmiCalculatorBtn.click();
-                break;
-            case "access db":
-                UserMgtPage.getPage().accessDbBtn.click();
-                break;
-            default:
-                System.out.println("Invalid button name");
-        }
+        WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_BUTTON, btn))).click();
     }
 
     @Then("Verify New Message header is displayed")

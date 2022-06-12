@@ -11,11 +11,6 @@ public class PopupPage {
         PageFactory.initElements(WebDriverManager.getDriver(), this);
     }
 
-    @FindBy(xpath = "//button[text()='Message']")
-    public WebElement messageBtn;
-
-    @FindBy(id = "bmi_btn")
-    public WebElement bmiCalculatorBtn;
 
     @FindBy(id = "exampleModalLabel")
     public WebElement messageHeaderTxt;

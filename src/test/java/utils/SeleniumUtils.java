@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Set;
+
 public class SeleniumUtils {
 
     public static void sleep(Long milliSeconds){
@@ -67,6 +69,20 @@ public class SeleniumUtils {
             }
         }
 
+    }
+
+    /**
+     * Method will switch to the next window
+     * NOTE: Method works only with 2 windows at a time
+     */
+    public static void switchToNextWindow(){
+        String currentWindowID = WebDriverManager.getDriver().getWindowHandle();
+        Set<String> allWindowIDs = WebDriverManager.getDriver().getWindowHandles();
+
+        for(String each: allWindowIDs){
+            if (!each.equals(currentWindowID))
+                WebDriverManager.getDriver().switchTo().window(each);
+        }
     }
 
 

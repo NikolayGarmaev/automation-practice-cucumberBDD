@@ -11,11 +11,6 @@ public class UserMgtPage {
         PageFactory.initElements(WebDriverManager.getDriver(), this);
     }
 
-    @FindBy(linkText = "User-Mgt")
-    public WebElement userMgtBtn;
-
-    @FindBy(id = "access-db-btn")
-    public WebElement accessDbBtn;
 
 
     public static UserMgtPage getPage(){
