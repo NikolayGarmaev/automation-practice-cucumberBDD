@@ -11,7 +11,6 @@ Feature: User-Mgt page tests
     And Verify input field "E-mail" is displayed
     And Verify "Role" selection is enabled
 
-  @temp
   Scenario: Verify all fields are displayed using Cucumber Data Table
     Then Verify following input fields are displayed:
       | First Name   |

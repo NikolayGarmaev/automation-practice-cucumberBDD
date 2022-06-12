@@ -27,4 +27,10 @@ public class PopupSteps implements CommonPage {
         Assert.assertTrue(WebDriverManager.getDriver().findElement(By.xpath(
                 String.format(XPATH_TEMPLATE_TEXT, txt))).isDisplayed());
     }
+
+    @Then("Verify h1 {string} header is displayed")
+    public void verifyHHeaderIsDisplayed(String headerTxt) {
+        SeleniumUtils.waitForElementVisibility(PopupPage.getPage().headerH1);
+        Assert.assertEquals(headerTxt, PopupPage.getPage().headerH1.getText());
+    }
 }

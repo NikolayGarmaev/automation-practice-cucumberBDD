@@ -12,11 +12,8 @@ public class PopupPage {
     }
 
 
-    @FindBy(id = "exampleModalLabel")
-    public WebElement messageHeaderTxt;
-
-    @FindBy(id = "staticBackdropLabel")
-    public WebElement getBmiCalculatorHeaderTxt;
+    @FindBy(tagName = "h1")
+    public WebElement headerH1;
 
     public static PopupPage getPage(){
         if (page == null){

@@ -22,4 +22,5 @@ public class HomeSteps implements CommonPage {
         WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, pageName))).click();
     }
 
+
 }
