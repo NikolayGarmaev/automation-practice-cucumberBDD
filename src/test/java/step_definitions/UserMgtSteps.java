@@ -19,15 +19,15 @@ public class UserMgtSteps implements CommonPage {
 
     @Then("Verify input field {string} is displayed")
     public void verify_input_field_is_displayed(String fieldName) {
-        Assert.assertTrue(WebDriverManager.getDriver().findElement(By.xpath(String.format(
-                XPATH_TEMPLATE_INPUT_FIELD, fieldName))).isDisplayed());
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(
+                XPATH_TEMPLATE_INPUT_FIELD, fieldName))));
     }
 
     @Then("Verify following input fields are displayed:")
     public void verifyFollowingInputFieldsAreDisplayed(List<String> data) {
         for(String each: data){
-            Assert.assertTrue(WebDriverManager.getDriver().findElement(By.xpath(String.format(
-                    XPATH_TEMPLATE_INPUT_FIELD, each))).isDisplayed());
+            Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(
+                    XPATH_TEMPLATE_INPUT_FIELD, each))));
         }
     }
 
@@ -41,7 +41,7 @@ public class UserMgtSteps implements CommonPage {
             default: element = null;
         }
 
-        Assert.assertTrue(element.isEnabled());
+        Assert.assertTrue(WebDriverManager.isEnabled(element));
     }
 
 

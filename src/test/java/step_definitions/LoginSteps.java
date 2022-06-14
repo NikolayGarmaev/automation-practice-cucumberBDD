@@ -13,10 +13,7 @@ public class LoginSteps implements CommonPage {
     @When("User enters following credentials:")
     public void userEntersFollowingCredentials(Map<String, String> data) {
         for(String key: data.keySet()){
-            SeleniumUtils.waitForElementVisibility(WebDriverManager.getDriver().findElement(By.xpath(String.format(
-                    XPATH_TEMPLATE_INPUT_FIELD, key))));
-            WebDriverManager.getDriver().findElement(By.xpath(String.format(
-                XPATH_TEMPLATE_INPUT_FIELD, key))).sendKeys(data.get(key));
+            WebDriverManager.sendKeys(By.xpath(String.format(XPATH_TEMPLATE_INPUT_FIELD)), data.get(key));
         }
 
     }

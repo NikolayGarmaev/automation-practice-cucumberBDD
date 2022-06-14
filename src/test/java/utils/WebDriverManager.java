@@ -1,6 +1,8 @@
 package utils;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -55,6 +57,69 @@ public class WebDriverManager {
             driver.quit();
             driver = null;
         }
+    }
+
+    public static void click(WebElement element){
+        SeleniumUtils.moveIntoView(element);
+        SeleniumUtils.highlightElement(element);
+        SeleniumUtils.waitForElementClickability(element);
+        element.click();
+    }
+
+    public static void click(By by){
+        SeleniumUtils.moveIntoView(getDriver().findElement(by));
+        SeleniumUtils.highlightElement(getDriver().findElement(by));
+        SeleniumUtils.waitForElementClickability(getDriver().findElement(by));
+        getDriver().findElement(by).click();
+    }
+
+    public static String getText(WebElement element){
+        SeleniumUtils.moveIntoView(element);
+        SeleniumUtils.highlightElement(element);
+        SeleniumUtils.waitForElementVisibility(element);
+        return element.getText();
+    }
+
+    public static String getText(By by){
+        SeleniumUtils.moveIntoView(getDriver().findElement(by));
+        SeleniumUtils.highlightElement(getDriver().findElement(by));
+        SeleniumUtils.waitForElementVisibility(getDriver().findElement(by));
+        return getDriver().findElement(by).getText();
+    }
+
+    public static void sendKeys(WebElement element, String txt){
+        SeleniumUtils.moveIntoView(element);
+        SeleniumUtils.highlightElement(element);
+        SeleniumUtils.waitForElementVisibility(element);
+        element.sendKeys(txt);
+    }
+
+    public static void sendKeys(By by, String txt){
+        SeleniumUtils.moveIntoView(getDriver().findElement(by));
+        SeleniumUtils.highlightElement(getDriver().findElement(by));
+        SeleniumUtils.waitForElementVisibility(getDriver().findElement(by));
+        getDriver().findElement(by).sendKeys(txt);
+    }
+
+    public static boolean isDisplayed(WebElement element){
+        SeleniumUtils.moveIntoView(element);
+        SeleniumUtils.highlightElement(element);
+        SeleniumUtils.waitForElementVisibility(element);
+        return element.isDisplayed();
+    }
+
+    public static boolean isDisplayed(By by){
+        SeleniumUtils.moveIntoView(getDriver().findElement(by));
+        SeleniumUtils.highlightElement(getDriver().findElement(by));
+        SeleniumUtils.waitForElementVisibility(getDriver().findElement(by));
+        return getDriver().findElement(by).isDisplayed();
+    }
+
+    public static boolean isEnabled(WebElement element){
+        SeleniumUtils.moveIntoView(element);
+        SeleniumUtils.highlightElement(element);
+        SeleniumUtils.waitForElementClickability(element);
+        return element.isEnabled();
     }
 
 }

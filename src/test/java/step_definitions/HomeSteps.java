@@ -17,15 +17,14 @@ public class HomeSteps implements CommonPage {
     }
 
 
-
     @Then("Verify PHP Travels link is displayed")
     public void verifyPHPTravelsLinkIsDisplayed() {
-        Assert.assertTrue(homePage.phpLink.isDisplayed());
+        Assert.assertTrue(WebDriverManager.isDisplayed(homePage.phpLink));
     }
 
     @Given("User opens {string} page")
     public void userOpensPage(String pageName) {
-        WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, pageName))).click();
+        WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, pageName)));
     }
 
 
