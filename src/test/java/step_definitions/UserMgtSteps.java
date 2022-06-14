@@ -11,6 +11,11 @@ import utils.WebDriverManager;
 import java.util.List;
 
 public class UserMgtSteps implements CommonPage {
+    UserMgtPage userMgtPage;
+
+    public UserMgtSteps(){
+        userMgtPage = new UserMgtPage();
+    }
 
     @Then("Verify input field {string} is displayed")
     public void verify_input_field_is_displayed(String fieldName) {
@@ -31,7 +36,7 @@ public class UserMgtSteps implements CommonPage {
         WebElement element;
 
         switch (selectName.toLowerCase()){
-            case "role": element = UserMgtPage.getPage().selectRole;
+            case "role": element = userMgtPage.selectRole;
             break;
             default: element = null;
         }

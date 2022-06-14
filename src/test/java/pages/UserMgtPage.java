@@ -6,7 +6,6 @@ import org.openqa.selenium.support.PageFactory;
 import utils.WebDriverManager;
 
 public class UserMgtPage {
-    private static UserMgtPage page;
     public UserMgtPage(){
         PageFactory.initElements(WebDriverManager.getDriver(), this);
     }
@@ -14,10 +13,4 @@ public class UserMgtPage {
     @FindBy(id = "Select-role")
     public WebElement selectRole;
 
-    public static UserMgtPage getPage(){
-        if (page == null){
-            page = new UserMgtPage();
-        }
-        return page;
-    }
 }

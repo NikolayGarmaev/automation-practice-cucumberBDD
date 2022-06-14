@@ -10,11 +10,17 @@ import pages.HomePage;
 import utils.WebDriverManager;
 
 public class HomeSteps implements CommonPage {
+    HomePage homePage;
+
+    public HomeSteps(){
+        homePage = new HomePage();
+    }
+
 
 
     @Then("Verify PHP Travels link is displayed")
     public void verifyPHPTravelsLinkIsDisplayed() {
-        Assert.assertTrue(HomePage.getPage().phpLink.isDisplayed());
+        Assert.assertTrue(homePage.phpLink.isDisplayed());
     }
 
     @Given("User opens {string} page")

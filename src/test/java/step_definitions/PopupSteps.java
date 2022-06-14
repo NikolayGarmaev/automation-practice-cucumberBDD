@@ -13,6 +13,11 @@ import utils.SeleniumUtils;
 import utils.WebDriverManager;
 
 public class PopupSteps implements CommonPage {
+    PopupPage popupPage;
+
+    public PopupSteps(){
+        popupPage = new PopupPage();
+    }
 
     @And("User clicks on {string} button")
     public void userClicksOnButton(String btn) {
@@ -30,7 +35,7 @@ public class PopupSteps implements CommonPage {
 
     @Then("Verify h1 {string} header is displayed")
     public void verifyHHeaderIsDisplayed(String headerTxt) {
-        SeleniumUtils.waitForElementVisibility(PopupPage.getPage().headerH1);
-        Assert.assertEquals(headerTxt, PopupPage.getPage().headerH1.getText());
+        SeleniumUtils.waitForElementVisibility(popupPage.headerH1);
+        Assert.assertEquals(headerTxt, popupPage.headerH1.getText());
     }
 }
