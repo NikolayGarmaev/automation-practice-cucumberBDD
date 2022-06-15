@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         glue = {"step_definitions"},
         stepNotifications = true,
         dryRun = false,
-        tags = "@temp"
+        tags = "@scenarioOutlineExample"
 )
 public class CukesRunner {
 }

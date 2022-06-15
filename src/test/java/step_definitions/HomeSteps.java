@@ -22,10 +22,16 @@ public class HomeSteps implements CommonPage {
         Assert.assertTrue(WebDriverManager.isDisplayed(homePage.phpLink));
     }
 
+    @Then("Verify {string} link is displayed")
+    public void verifyLinkIsDisplayed(String linkName) {
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, linkName))));
+    }
+
     @Given("User opens {string} page")
     public void userOpensPage(String pageName) {
         WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, pageName)));
     }
+
 
 
 }
