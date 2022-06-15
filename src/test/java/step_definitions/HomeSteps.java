@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import pages.CommonPage;
 import pages.HomePage;
+import utils.CucumberLogUtils;
 import utils.WebDriverManager;
 
 public class HomeSteps implements CommonPage {
@@ -24,7 +25,7 @@ public class HomeSteps implements CommonPage {
 
     @Then("Verify {string} link is displayed")
     public void verifyLinkIsDisplayed(String linkName) {
-        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, linkName))));
+        Assert.assertFalse(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, linkName))));
     }
 
     @Given("User opens {string} page")
@@ -33,5 +34,10 @@ public class HomeSteps implements CommonPage {
     }
 
 
-
+    @Then("Verify {string} is enabled")
+    public void verifyIsEnabled(String button) {
+        Assert.assertTrue(WebDriverManager.isEnabled(
+                WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, button)))
+        ));
+    }
 }

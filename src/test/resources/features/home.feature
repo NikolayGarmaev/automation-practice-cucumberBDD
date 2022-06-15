@@ -1,3 +1,4 @@
+@homeScenarios
 Feature: Home page related scenarios
 
   Scenario: Verify header of the page is Automation with Selenium
@@ -21,3 +22,12 @@ Feature: Home page related scenarios
       | PHP Travels |
       | Internet    |
       | E-commerce  |
+
+  Scenario Outline: Verify button is enabled
+    Then Verify "<pageLink>" is enabled
+    Examples:
+      | pageLink   |
+      | Home       |
+      | Curriculum |
+#      | Notes      |
+#      | Inputs     |

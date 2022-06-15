@@ -15,6 +15,7 @@ public class UserDBSteps {
 
     @And("User switches to new window")
     public void userSwitchesToNewWindow() {
+        Assert.fail();
         SeleniumUtils.switchToNextWindow();
     }
 }
