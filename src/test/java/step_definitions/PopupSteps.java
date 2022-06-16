@@ -18,17 +18,14 @@ public class PopupSteps implements CommonPage {
     public PopupSteps(){
         popupPage = new PopupPage();
     }
-
     @And("User clicks on {string} button")
     public void userClicksOnButton(String btn) {
         WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_BUTTON, btn))).click();
     }
-
     @Then("Verify {string} header is displayed")
     public void verifyHeaderIsDisplayed(String txt) {
         Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, txt))));
     }
-
     @Then("Verify h1 {string} header is displayed")
     public void verifyHHeaderIsDisplayed(String headerTxt) {
         Assert.assertEquals(headerTxt, WebDriverManager.getText(popupPage.headerH1));

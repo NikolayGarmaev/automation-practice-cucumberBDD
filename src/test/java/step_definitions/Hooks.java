@@ -15,7 +15,6 @@ public class Hooks {
         WebDriverManager.getDriver().get(ConfigReader.readProperty("url"));
         CucumberLogUtils.initScenario(scenario);
     }
-
     @After
     public void tearDown(Scenario scenario){
         if(scenario.isFailed()){
@@ -23,7 +22,6 @@ public class Hooks {
         }
         WebDriverManager.quitDriver();
     }
-
     //will run after each step in scenario
 //    @AfterStep
 //    public void afterStep(){

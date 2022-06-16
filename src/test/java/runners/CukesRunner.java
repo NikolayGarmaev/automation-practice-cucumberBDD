@@ -11,8 +11,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = {"step_definitions"},
         stepNotifications = true,
-        dryRun = false,
-        tags = "@homeScenarios"
+        dryRun = true
+//        tags = "@homeScenarios"
 )
 public class CukesRunner {
 }

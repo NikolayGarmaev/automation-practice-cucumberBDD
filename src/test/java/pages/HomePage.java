@@ -9,9 +9,6 @@ public class HomePage {
     public HomePage(){
         PageFactory.initElements(WebDriverManager.getDriver(), this);
     }
-
     @FindBy(id = "php-travels")
     public WebElement phpLink;
-
-
 }

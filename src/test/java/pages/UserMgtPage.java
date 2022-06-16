@@ -9,8 +9,6 @@ public class UserMgtPage {
     public UserMgtPage(){
         PageFactory.initElements(WebDriverManager.getDriver(), this);
     }
-
     @FindBy(id = "Select-role")
     public WebElement selectRole;
-
 }
