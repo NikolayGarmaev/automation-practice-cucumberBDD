@@ -29,5 +29,5 @@ Feature: Home page related scenarios
       | pageLink   |
       | Home       |
       | Curriculum |
-#      | Notes      |
-#      | Inputs     |
+#     | Notes      |
+#     | Inputs     |

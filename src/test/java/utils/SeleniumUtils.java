@@ -51,7 +51,11 @@ public class SeleniumUtils {
     public static void moveIntoView(WebElement element){
         ((JavascriptExecutor)WebDriverManager.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
     }
-
+    public static void waitForElementVisibilityAndHighlightElement(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(WebDriverManager.getDriver(), 10);
+        wait.until(ExpectedConditions.visibilityOf(element));
+        highlightElement(element);
+    }
     public static void highlightElement(WebElement element){
         JavascriptExecutor js = (JavascriptExecutor) WebDriverManager.getDriver();
 
@@ -68,7 +72,6 @@ public class SeleniumUtils {
                 e.printStackTrace();
             }
         }
-
     }
 
     /**
@@ -84,6 +87,4 @@ public class SeleniumUtils {
                 WebDriverManager.getDriver().switchTo().window(each);
         }
     }
-
-
 }
