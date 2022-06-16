@@ -1,3 +1,4 @@
+@popUpScenarios
 Feature: Pop-Up page tests
   Background:
     Given User opens "Pop-Up" page
