@@ -11,7 +11,7 @@ Feature: User-Mgt page tests
     And Verify input field "E-mail" is displayed
     And Verify "Role" selection is enabled
 
-    @regression @smoke @US-453
+    @regression @smoke @US-453 @tempTag
   Scenario: Verify all fields are displayed using Cucumber Data Table
     Then Verify following input fields are displayed:
       | First Name   |

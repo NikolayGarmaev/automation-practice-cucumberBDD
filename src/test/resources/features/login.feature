@@ -1,3 +1,4 @@
+@loginScenarios
 Feature: Login page tests
 
   Background: Navigate to page
